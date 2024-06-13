@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family:'Poppins',sans-serif ;
+        }
+        section{
+            position: absolute;
+            top:0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: url(images/hospital1.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            transition: opacity 3s linear;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+       }
+       section h2{
+            font-size: 5vw;
+            color: #000;
+            background:#fff ;
+            padding:  10px 40px;
+            mix-blend-mode: screen;
+       } 
+    </style>
+</head>
+<body style="background-color:#7FE9DE;" id="enterDemo" onkeypress="enterKeyPressed(event)">
+    <section>
+    <h2>Welcome<br>Please press Enter to ask your queries</h2>
+    </section> 
+    <script src="https://code.responsivevoice.org/responsivevoice.js?key=WUeEy8ji"></script>
+    <script>
+    setInterval(readOutLoud("Hi I am here to help you Please press enter to ask your queries "),1000);
+    function changeBg(){
+        const images = [
+            'url("../images/hospital1.jpg")','url("../images/hospital2.jpg")','url("../images/hospital3.jpg")','url("../images/hospital4.jpg")'
+        ]
+        const section = document.querySelector('section');
+        const bg = images[Math.floor(Math.random()* images.length)];
+        section.style.backgroundImage = bg;
+    }
+    setInterval(changeBg,1000);
+
+    
+    function enterKeyPressed(event) {
+        if (event.keyCode == 13) {
+                window.location='chat.html';
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    function readOutLoud(message) {
+        const speech = message
+        speech.text = message
+        speech.volume = 1
+        speech.rate = 1.1
+        speech.pitch = 1
+        responsiveVoice.speak(speech, 'UK English Female');
+    }
+    </script>
+   
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</body>
+</html>

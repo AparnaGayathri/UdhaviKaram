@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chat Bot</title>
+    <style>
+        video{
+            float:left;
+            margin-top:7%;
+            height:100%;
+        }
+    .google-te-banner-frame.skiptranslate, .google-te-gadget-simple img {
+      display: none !important;
+    }
+    .google-tooltip{
+      display: none !important;
+    }
+    .google-tooltip:hover{
+      display: none !important;
+    }
+    .google-text-highlight{
+      background-color: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }</style>
+    <link rel="stylesheet" type="text/css" href="chat.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+   
+  </head>
+
+  <body>    
+     <div class="chat-bar-collapsible" >
+      <div id="chat-button" class="collapsible">
+        Your hospital assistant
+        <div id="google_element" align="right"></div>
+      </div> 
+      <video id="hospital-guide" width="50%"    autoplay muted >
+        
+        <source src="Eka2.mp4" type="video/mp4" />
+          Your browser does not support HTML5 video.
+      </video>
+    <div class="text-center p-2">
+        <div class="full-chat-block"> 
+           <div class="outer-container">
+            <div class="chat-container"> 
+              <div id="chatbox">
+                <h5 id="chat-timestamp"></h5>
+                <p id="botStarterMessage" class="botText">
+                  <span>Loading...</span>
+                </p>
+              </div> 
+
+              <!-- User input box -->
+              <div class="chat-bar-input-block">
+                <div id="userInput">
+                  <input id="textInput" class="input-box" type="text" name="msg" placeholder="Tap 'Enter' to send a message"/>
+                  <p></p>
+                </div>
+
+                <div class="chat-bar-icons">
+                  <i
+                    id="chat-icon"
+                    style="color: #333;"
+                    class="fa fa-fw fa-send"
+                    onclick="sendButton()"
+                  ></i>
+                </div>
+              </div>
+              <div id="chat-bar-bottom">
+                <p></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script>
+    function googleTranslateElementInit(){
+        console.log(new google.translate.TranslateElement({
+        defaultLanguage: 'en',
+        pageLanguage: 'en',
+        includedLanguages:'en,ta,hi',
+        layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+        autoDisplay: false,
+        multilanguagePage: true}
+        , 'google_element'))
+      }  
+      document.getElementById('textInput').focus();
+      document.getElementById('textInput').select();
+  </script>
+  <script src="http://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+  <script src="https://code.responsivevoice.org/responsivevoice.js?key=WUeEy8ji"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="chat.js"></script>
+</html>
